@@ -7,3 +7,12 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/msanders-snipmate.vim"]
+	path = bundle/msanders-snipmate.vim 
+	url = http://github.com/msanders/snipmate.vim.git
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "bundle/tpope-vim-rails"]
+	path = bundle/tpope-vim-rails
+	url = http://github.com/tpope/vim-rails.git
