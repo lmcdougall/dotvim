@@ -28,3 +28,6 @@
 [submodule "bundle/vim-makegreen"]
         path = bundle/vim-makegreen
         url = http://github.com/reinh/vim-makegreen.git
+[submodule "bundle/gundo"]
+	path = bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
