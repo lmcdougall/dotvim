@@ -8,7 +8,7 @@
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/msanders-snipmate.vim"]
-	path = bundle/msanders-snipmate.vim 
+	path = bundle/msanders-snipmate 
 	url = http://github.com/msanders/snipmate.vim.git
 [submodule "bundle/tabular"]
 	path = bundle/tabular
