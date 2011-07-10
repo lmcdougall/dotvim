@@ -52,6 +52,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 
 " Or use vividchalk
 colorscheme topfunky-light
+let mapleader=','
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -63,17 +64,23 @@ map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
+" edit commands 
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
 
 nnoremap <F5> :GundoToggle<CR>
 
 " Show syntax highlighting groups for word under cursor
- nmap <C-S-P> :call <SID>SynStack()<CR>
- function! <SID>SynStack()
-   if !exists("*synstack")
-       return
-   endif
-    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-  endfunc
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 
 " Uncomment to use Jamis Buck's file opening plugin
@@ -93,4 +100,32 @@ nnoremap <F5> :GundoToggle<CR>
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
+" Set tabstop, softtabstop and shiftwidth to the same value
+command! -nargs=* Stab call Stab()
+function! Stab()
+	let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+	if l:tabstop > 0
+		let &l:sts = l:tabstop
+		let &l:ts = l:tabstop
+		let &l:sw = l:tabstop
+	endif
+	call SummarizeTabs()
+endfunction
 
+function! SummarizeTabs()
+	try
+		echohl ModeMsg
+		echon 'tabstop='.&l:ts
+		echon ' shiftwidth='.&l:sw
+		echon ' softtabstop='.&l:sts
+		if &l:et
+			echon ' expandtab'
+		else
+			echon '
+			noexpandtab'
+		endif
+	finally
+		echohl
+		None
+	endtry
+endfunction
