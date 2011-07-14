@@ -73,7 +73,7 @@ map <leader>tm :tabmove
 "map <leader>es :sp %%
 "map <leader>ev :vsp %%
 "map <leader>et :tabe %%
-let mapleader=','
+
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
@@ -81,6 +81,8 @@ map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 nnoremap <F3>   :tabprevious<CR>
 nnoremap <S-F3> :tabnext<CR>
+:nnoremap <F4> :buffers<CR>:buffer<Space>
+:nnoremap <F5> :tabs<CR>:tabn<Space>
 
 "nnoremap <F5> :GundoToggle<CR>
 
@@ -145,5 +147,3 @@ endfunction
 
 "Bind the BufSel() function to a user-command
 command! -nargs=1 Bs :call BufSel("<args>")
-:nnoremap <F4> :buffers<CR>:buffer<Space>
-:nnoremap <F5> :tabs<CR>:tabn<Space>

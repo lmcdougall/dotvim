@@ -1,8 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/luis/Development/rails/Dropbox/woodjoy'
 let g:netrw_dirhist_2='/Users/luis/.vim'
 let g:netrw_dirhist_3='/Users/luis/Development/rails/Dropbox/tkd.30/app'
 let g:netrw_dirhist_4='/Users/luis/Development/rails/source/railcast/episode-143/store'
 let g:netrw_dirhist_5='/Users/luis/Development/rails/Dropbox/woodjoy/app/models'
 let g:netrw_dirhist_6='/Users/luis/.vim'
+let g:netrw_dirhist_7='/Users/luis'
