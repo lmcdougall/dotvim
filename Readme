@@ -6,6 +6,10 @@ Create sysmlinks:
 	ln -s ~/dotfiles/gvimrc ~/.gvimrc
 
 To update the submodules (all plugins and bundles)
-cd ~/.vim
-git submodule init
-git submodule update
+ cd ~/.vim
+ git submodule init
+ git submodule update
+
+Update all bundle from the root of .vim
+  git submodule foreach git pull origin master
+
