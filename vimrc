@@ -4,7 +4,7 @@
 set nocompatible                  " Must come first because it changes other options.
 
 " auto load all files into new tab each
-:au BufAdd,BufNewFile * nested tab sball
+":au BufAdd,BufNewFile * nested tab sball
 
 silent! call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -42,19 +42,21 @@ set visualbell                    " No beeping.
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+"set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set directory=/tmp//,.  " Keep swap files in one location
 
 " UNCOMMENT TO USE
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
-
+set paste
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " Or use vividchalk
 colorscheme topfunky-light
+"colorscheme phphaxor
 let mapleader=','
 
 " Tab mappings.
@@ -67,6 +69,12 @@ map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
+nnorema <F3>   :tabprevious<CR>
+nnoremap <S-F3> :tabnext<CR>
+":nnoremap <F4> :buffers<CR>:buffer<Space>
+:nnoremap <F4> :NERDTreeToggle<CR>
+:nnoremap <F5> :tabs<CR>:tabn<Space>
+
 " edit commands 
 "cnoremap %% <C-R>=expand('%:h').'/'<cr>
 "map <leader>ew :e %%
@@ -74,16 +82,12 @@ map <leader>tm :tabmove
 "map <leader>ev :vsp %%
 "map <leader>et :tabe %%
 
+" Windows mappings.
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-nnoremap <F3>   :tabprevious<CR>
-nnoremap <S-F3> :tabnext<CR>
-:nnoremap <F4> :buffers<CR>:buffer<Space>
-:nnoremap <F5> :tabs<CR>:tabn<Space>
-
+map <BS> <c-^>
 "nnoremap <F5> :GundoToggle<CR>
 
 " Show syntax highlighting groups for word under cursor
@@ -94,11 +98,6 @@ function! <SID>SynStack()
 	endif
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-" Source the vimrc file after saving it
- if has("autocmd")
-   autocmd bufwritepost .vimrc source $MYVIMRC
- endif
-
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
@@ -144,6 +143,20 @@ function! BufSel(pattern)
     echo "No matching buffers"
   endif
 endfunction
+" Source the vimrc file after saving it
+ if has("autocmd")
+   autocmd bufwritepost .vimrc source $MYVIMRC
+ endif
 
 "Bind the BufSel() function to a user-command
 command! -nargs=1 Bs :call BufSel("<args>")
+autocmd FileType eruby setlocal ts=4 sts=4 sw=4 noexpandtab
+set shiftwidth=4 softtabstop=4 expandtab
+"----- from destroyallsoftwaer.com/file-navigation-in-vim.html
+set winwidth=84
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+set winheight=5
+set winminheight=5
+set winheight=999
