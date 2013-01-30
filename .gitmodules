@@ -40,3 +40,6 @@
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "bundle/vim-markdown-folding"]
+	path = bundle/vim-markdown-folding
+	url = git://github.com/nelstrom/vim-markdown-folding.git
