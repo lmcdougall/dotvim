@@ -81,6 +81,14 @@ nnoremap <S-F3> :tabnext<CR>
 "map <leader>es :sp %%
 "map <leader>ev :vsp %%
 "map <leader>et :tabe %%
+" bubble text
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
 
 " Windows mappings.
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -146,6 +154,7 @@ endfunction
 " Source the vimrc file after saving it
  if has("autocmd")
    autocmd bufwritepost .vimrc source $MYVIMRC
+   filetype plugin indent on
  endif
 
 "Bind the BufSel() function to a user-command
