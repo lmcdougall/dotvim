@@ -58,6 +58,20 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 colorscheme topfunky-light
 "colorscheme phphaxor
 let mapleader=','
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -83,11 +97,13 @@ nnoremap <S-F3> :tabnext<CR>
 "map <leader>et :tabe %%
 " bubble text
 " Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
+"nmap <Esc>[A [e
+"nmap <Esc>[B ]e
+nmap <C-up> [e
+nmap <C-down> ]e
 " Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+vmap <Esc>[A [egv
+vmap <Esc>[B ]egv
 
 
 " Windows mappings.
@@ -169,3 +185,4 @@ set winwidth=84
 set winheight=5
 set winminheight=5
 set winheight=999
+
