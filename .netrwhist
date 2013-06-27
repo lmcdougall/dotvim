@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/private/etc'
-let g:netrw_dirhist_2='/Users/luis/Development/rails/Dropbox/tkd'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/luis/Development/rails/Dropbox/tkd'
+let g:netrw_dirhist_2='/private/tmp/tkd/app'
+let g:netrw_dirhist_3='/Users/luis/Development/rails/Dropbox/tkd/config/environments'
+let g:netrw_dirhist_4='/Users/luis/Development/rails/source/rc1/416-form-objects'
+let g:netrw_dirhist_5='/Users/luis/Development/rails/source/rc1/416-form-objects/signup-before'
+let g:netrw_dirhist_6='/Users/luis/.vim/bundle/zencoding-vim'
+let g:netrw_dirhist_7='/Users/luis/Development/Dropbox/mstkd'

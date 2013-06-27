@@ -73,4 +73,6 @@ autocmd FileType eruby setlocal ts=4 sts=4 sw=4 noexpandtab
 set shiftwidth=4 softtabstop=4 expandtab
 
 :set guioptions-=r                 " Don't show right scrollbar
-colorscheme topfunky-light
+"colorscheme topfunky-light
+"colorscheme darkblue
+colorscheme railscast
