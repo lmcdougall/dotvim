@@ -49,3 +49,7 @@
 [submodule "bundle/vim-abolish"]
 	path = bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule "bundle/zencoding-vim"]
+    path = bundle/zencoding-vim
+    url = https://github.com/mattn/zencoding-vim.git
+
