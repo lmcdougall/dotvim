@@ -13,8 +13,8 @@
 [submodule "bundle/tpope-vim-rails"]
 	path = bundle/tpope-vim-rails
 	url = http://github.com/tpope/vim-rails.git
-[submodule "bundle/tpope-vim-surround"]
-        path = bundle/tpope-vim-surround 
+[submodule "bundle/vim-surround"]
+        path = bundle/vim-surround 
         url = http://github.com/tpope/vim-surround.git
 [submodule "bundle/vim-coffee-script"]
         path = bundle/vim-coffee-script
@@ -25,12 +25,12 @@
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
+[submodule "bundle/snipmate.vim"]
+	path = bundle/snipmate.vim
 	url = https://github.com/msanders/snipmate.vim.git
-[submodule "bundle/unimpaired"]
-	path = bundle/unimpaired
-	url = https://github.com/tpope/vim-unimpaired.git 
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
