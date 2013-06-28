@@ -16,9 +16,6 @@
 [submodule "bundle/tpope-vim-surround"]
         path = bundle/tpope-vim-surround 
         url = http://github.com/tpope/vim-surround.git
-[submodule "bundle/tsaleh-vim-tcomment"]
-        path = bundle/tsaleh-vim-tcomment 
-        url = http://github.com/tsaleh/vim-tcomment.git 
 [submodule "bundle/vim-coffee-script"]
         path = bundle/vim-coffee-script
         url = git://github.com/kchmck/vim-coffee-script.git
