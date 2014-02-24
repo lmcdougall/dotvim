@@ -1,11 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/luis/Development/rails/Dropbox/tkd'
-let g:netrw_dirhist_2='/private/tmp/tkd/app'
-let g:netrw_dirhist_3='/Users/luis/Development/rails/Dropbox/tkd/config/environments'
-let g:netrw_dirhist_4='/Users/luis/Development/rails/source/rc1/416-form-objects'
-let g:netrw_dirhist_5='/Users/luis/Development/rails/source/rc1/416-form-objects/signup-before'
-let g:netrw_dirhist_6='/Users/luis/.vim/bundle/zencoding-vim'
-let g:netrw_dirhist_7='/Users/luis/Development/Dropbox/mstkd'
-let g:netrw_dirhist_8='/Users/luis/.vim'
-let g:netrw_dirhist_9='/private/tmp/vim/dotvim/.git'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/luis/Library/Application Support/Sublime Text 3/Packages/Ruby Hash Converter'
+let g:netrw_dirhist_2='/Users/luis/Development/Dropbox/ruby/wisemed/wisemed2'
+let g:netrw_dirhist_3='/Users/luis/Development/Dropbox/ruby/wisemed/wisemed2/db/migrate'
+let g:netrw_dirhist_4='/Users/luis/Development/Dropbox/ruby/wisemed/wisemed2/app/controllers'
