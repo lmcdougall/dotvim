@@ -59,3 +59,6 @@
     path = bundle/vim-endwise
     url  = https://github.com/tpope/vim-endwise.git
 
+[submodule "bundle/vim-exchange"]
+	path = bundle/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange.git
