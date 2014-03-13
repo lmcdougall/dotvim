@@ -65,3 +65,6 @@
 [submodule "bundle/--force"]
 	path = bundle/--force
 	url = https://github.com/wincent/Command-T.git
+[submodule "bundle/dash.vim"]
+	path = bundle/dash.vim
+	url = https://github.com/rizzatti/dash.vim.git
