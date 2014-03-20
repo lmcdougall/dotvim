@@ -90,6 +90,8 @@ nnoremap <S-F3> :tabnext<CR>
 ":nnoremap <F4> :buffers<CR>:buffer<Space>
 :nnoremap <F4> :NERDTreeToggle<CR>
 :nnoremap <F5> :tabs<CR>:tabn<Space>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " edit commands 
 "cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -106,7 +108,6 @@ nmap <C-down> ]e
 " Bubble multiple lines
 vmap <Esc>[A [egv
 vmap <Esc>[B ]egv
-
 
 " Windows mappings.
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
