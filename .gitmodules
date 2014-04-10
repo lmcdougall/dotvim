@@ -11,8 +11,8 @@
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
 [submodule "bundle/vim-surround"]
-        path = bundle/vim-surround 
-        url = http://github.com/tpope/vim-surround.git
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/vim-coffee-script"]
         path = bundle/vim-coffee-script
         url = git://github.com/kchmck/vim-coffee-script.git
@@ -80,3 +80,6 @@
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
 	url = https://github.com/tpope/vim-rails.git
+[submodule "bundle/vimux"]
+	path = bundle/vimux
+	url = https://github.com/benmills/vimux.git
