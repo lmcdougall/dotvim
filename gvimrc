@@ -75,6 +75,8 @@ set wildmode=list:longest         " Complete files like a shell.
 "colorscheme topfunky-light
 "colorscheme darkblue
 colorscheme railscast
+"Set this to 1 if you want CtrlP to scan for dotfiles and dotdirs: >
+let g:ctrlp_show_hidden = 1
 
 "let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP'

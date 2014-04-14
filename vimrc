@@ -188,4 +188,5 @@ set winwidth=84
 set winheight=5
 set winminheight=5
 set winheight=999
-
+"CtrlP additional setup
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
