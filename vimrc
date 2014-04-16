@@ -59,7 +59,6 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 "colorscheme topfunky-light
 "colorscheme phphaxor
 colorscheme darkblue
-let mapleader=','
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
@@ -72,6 +71,11 @@ function! InsertTabWrapper()
         return "\<c-p>"
     endif
 endfunction
+
+let mapleader=','
+"turn of the search higlight by pressing , space-bar
+nnoremap <leader><space> :noh<cr>
+
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
@@ -94,8 +98,13 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 "show hiden files and dirs
 let NERDTreeShowHidden=1
-
-
+" Search mode to very magic
+ "forward search
+nnoremap / /\v
+vnoremap / /\v
+ "backward search
+nnoremap ? ?\v
+vnoremap ? ?\v
 " edit commands 
 "cnoremap %% <C-R>=expand('%:h').'/'<cr>
 "map <leader>ew :e %%
@@ -109,8 +118,10 @@ let NERDTreeShowHidden=1
 nmap <C-up> [e
 nmap <C-down> ]e
 " Bubble multiple lines
-vmap <Esc>[A [egv
-vmap <Esc>[B ]egv
+"vmap <Esc>[A [egv
+"vmap <Esc>[B ]egv
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
 " Windows mappings.
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -194,4 +205,4 @@ set winheight=999
 "CtrlP additional setup
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
 "emmet
-let g:user_emmet_leader_key='<C-p>'
+"let g:user_emmet_leader_key='<C-p>'
