@@ -92,6 +92,9 @@ nnoremap <S-F3> :tabnext<CR>
 :nnoremap <F5> :tabs<CR>:tabn<Space>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+"show hiden files and dirs
+let NERDTreeShowHidden=1
+
 
 " edit commands 
 "cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -190,3 +193,5 @@ set winminheight=5
 set winheight=999
 "CtrlP additional setup
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+"emmet
+let g:user_emmet_leader_key='<C-p>'
