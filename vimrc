@@ -49,11 +49,7 @@ set directory=/tmp//,.  " Keep swap files in one location
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
-set paste
 set laststatus=2                  " Show the status line all the time
-" Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-":set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 " Or use vividchalk
 "colorscheme topfunky-light
@@ -68,7 +64,7 @@ function! InsertTabWrapper()
     if !col || getline('.')[col - 1] !~ '\k'
         return "\<tab>"
     else
-        return "\<c-p>"
+        return "\<C-n>"
     endif
 endfunction
 
@@ -142,12 +138,6 @@ endfunc
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
-" Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
-
-"vnoremap ; :
-"vnoremap : ;
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
@@ -206,3 +196,7 @@ set winheight=999
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
 "emmet
 "let g:user_emmet_leader_key='<C-p>'
+"Toggle set number
+nnoremap <leader>N :setlocal number!<cr>
+set listchars=tab:▸\ ,eol:¬
+nmap <leader>l :set list!<cr>
