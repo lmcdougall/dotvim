@@ -1,0 +1,284 @@
+alias df='df -h $*'
+alias du='du -h $*'
+alias ll='CLICOLOR_FORCE=1 ls'
+alias less='less -R'
+alias cp='cp -i'
+alias h='history'
+alias la='CLICOLOR_FORCE=1 ls -a'
+alias lsc='CLICOLOR_FORCE=1 ls -G'
+alias lsd="CLICOLOR_FORCE=1 ls -l $*|egrep '^d'"
+alias lsl="CLICOLOR_FORCE=1 ls -l $*|egrep '^l'"
+alias lsf="CLICOLOR_FORCE=1 ls -l $*|egrep -v '^d'"
+alias knock='~/bin/knock.py'
+alias llogin='~/bin/llogin'
+alias hosts='cat /etc/hosts'
+alias gvim='~/bin/gvim'
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias print_man='man $1 -t > man.ps'
+alias msql='mysql.server start'
+alias mstart='sudo nohup /opt/local/bin/mysqld_safe5 &'
+alias mstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'
+alias scpresume='rsync --partial --progress --rsh=ssh'
+#alias storage='ssh -C linux'
+alias luis='ssh -C luis'
+alias rsync='rsync -Pavur'
+#alias tkd='cd ~/Development/rails/Dropbox/tkd.30'
+alias wood='cd ~/Development/rails/Dropbox/woodjoy'
+alias r9='rvm 1.9.2'
+alias vi='vim'
+alias gitpush='git push -u origin $1'
+alias gitremote='git checkout -b $1 origin/$1'
+alias gl='git log --oneline --all --graph --decorate'
+#alias gemset="rvm gemset  $*"
+alias gemset="rbenv gemset  $*"
+alias ustc='cd ~/Development/rails/Dropbox/ustc'
+alias gitk='gitk --all'
+alias mate2='/usr/local/bin/mate $* '
+alias mate='/usr/bin/mate $* '
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs $* &"
+alias src='cd  /Users/luis/Development/rails/source'
+alias rb='rbenv'
+alias develop='cd /Users/luis/Development/rails/Dropbox'
+alias rp='rails s -e production'
+alias rd='rails s'
+alias rc='rails c'
+#alias mdolce='cd /Users/luis/Development/rails/Dropbox/mdolce'
+#alias tnt='cd /Users/luis/Development/rails/Dropbox/tnt'
+
+
+
+##########
+#Funtions#
+##########
+#function wisemed ()
+#{
+#    if [[ $# == 0 ]] ; then
+#        cd ~/Development/Dropbox/ruby/wisemed
+#    elif [[ $1 =~ "^[-0-9]+$" ]] ; then
+#        cd ~/Development/Dropbox/ruby/wisemed/wisemed$1 
+#    else
+#        cd ~/Development/Dropbox/ruby/wisemed/$1
+#    fi
+#}
+
+
+
+#function tkd ()
+#{
+#    if [[ $# == 0 ]] ; then
+#        cd ~/Development/Dropbox/tkd
+#    else
+#        cd ~/Development/Dropbox/tkd.30
+#    fi
+#}
+#
+
+# this script is for experimentation with zsh 
+function mcdougall ()
+{
+    print $# $*
+    if [[ $# == 0 ]]; then
+        print Yellow is no colour.
+    fi
+
+#read var
+#case var in
+  case $# in
+    (1) print Read yes 1
+          ;;
+    (2) print Read no 2
+         ;;
+    (*) print Read something else
+        ;;
+  esac
+
+
+}
+
+function tmuxf()
+{
+  if [[ $# == 0 ]]; then
+    tmux new-session -n mcbook
+  else
+    tmux $*
+  fi
+}
+
+## to verify chechsum string against a file.
+function chkha1()
+{
+  if [[ $# != 2 ]]; then
+    echo "USAGE: chkha1 file_name checksum_string"
+  else
+      openssl sha1 $1 |cut -d " " -f 2|read h1 
+      if [ "$h1" = "$2" ]; then 
+         echo "*** MATCHED, GOOD ***"
+      else
+         echo "*** WARNING DID NOT MATCH ***"
+      fi
+  fi
+}
+
+## Postgress server
+function pg-server()
+{
+   if [[ $1 == 'start' ]]; then
+    pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+   elif [[ $1 == 'stop' ]]; then
+    pg_ctl -D /usr/local/var/postgres stop -s -m fast
+   else
+    echo "pg-server ([start|stop])" 
+  fi
+}
+function rdev()
+{
+  if [[ $# != 0 ]]; then
+    cd ~/Development/Dropbox/ruby/$1
+  else
+    cd ~/Development/Dropbox/ruby
+  fi
+}
+
+function sshdev()
+{
+   if [[ $1 == 'root' ]]; then
+      ssh root@198.199.86.163
+   elif [[ $1 == 'dep' ]]; then
+      ssh deployer@198.199.86.163
+   else
+     echo "sshdev [(root|dep)]" 
+   fi
+}
+
+
+function rsynk()
+{
+    
+  if [[ $# == 0 ]]; then
+    echo "USAGE: rsynk -vaz source destination | rsync -h for more help"
+  else
+    \rsync $*
+  fi
+}
+function scpmundo()
+{
+  scp $1 mundomcd@mundomcdougall.com:
+}
+fucntion chrome()
+{
+    open $@ --args --allow-file-access-from-files
+}
+
+funtion sdir()
+{
+
+  if [[ $# == 0 ]]; then
+    echo "Plese provide at least one command"
+   else
+    $@ $(ls|sel)
+  fi    
+}
+
+function cmanual()
+{
+    cd ~/Documents/Sites/Cmanual
+    open index.html
+}
+
+function kvim()
+{
+    echo "bindkey -v" 
+}
+
+
+function today
+{
+    #ruby -e 'p Time.now.asctime '
+    day=$(date | cut -d ' ' -f 3)
+    dow=$(date | cut -d ' ' -f 1)
+    month=$(date | cut -d ' ' -f 2)
+    year=$(date | cut -d ' ' -f 6)
+    hr=$(date | cut -d ' ' -f 4)
+    zone=$(date | cut -d ' ' -f 5)
+   
+    echo "$dow $month $day, $year @ $hr"
+
+}
+
+function animate
+{ # use animate *.jpg
+    convert -delay 55 -loop 0 $@  animated.gif
+}
+
+function a-git
+{
+  alias | grep git
+}
+
+function ruby-tapas
+{
+    (cd /Volumes/FASTDATA/ruby-tapas-downloader; bin/ruby-tapas-downloader)
+}
+
+function undocommit
+{
+    if [ -d .git ]; then
+        read yes'?Are you sure[y/n]:'
+        if [[ $yes = y ]]; then    
+            git reset --soft 'HEAD^'
+            git reset .
+        else
+           print woof, you almost did it!
+        fi
+    else
+      echo You must be in a git repository for this to work
+     return
+    fi;
+
+  #if [[ $# == 0 ]]; then
+  #  echo "undo git by doing git reset --soft 'HEAD^';git reset ."
+  #fi    
+}
+
+function encrypt
+{
+  if [[ $# == 0 ]]; then
+    echo "USAGE: encrypt fileName fileNameOfEncripted"
+  elif [[ $# == 1 ]]; then
+      if [[ -a $1 ]]; then
+        openssl des3 -salt -out "$1.enc" -in $1 
+      else
+        echo "$1 does not exist"
+      fi
+  else
+    echo "encrypt with no arguments for help"
+  fi
+}
+
+function decrypt
+{
+  if [[ $# == 0 ]]; then
+    echo "USAGE: decrypt fileName [-t]"
+  else
+      if [[ -a $1 ]]; then
+        file=$1
+        filename="${file%.*}"
+        if [[ $# == 1 ]]; then
+            openssl des3 -salt -d -out "$filename" -in $1 
+        elif  [[ $# == 2 ]]; then
+            openssl des3 -salt -d  -in $1 
+        fi
+      else
+        echo "$1 does not exist"
+      fi
+  fi
+}
+
+function gitsrevs
+{
+    git rev-list --reverse HEAD |
+    while read rev; do
+      git log --oneline -1 $rev
+    #  git ls-tree -r $rev
+    done
+}
