@@ -130,6 +130,7 @@ function pg-server()
     echo "pg-server ([start|stop])" 
   fi
 }
+
 function rdev()
 {
   if [[ $# != 0 ]]; then
@@ -160,10 +161,12 @@ function rsynk()
     \rsync $*
   fi
 }
+
 function scpmundo()
 {
   scp $1 mundomcd@mundomcdougall.com:
 }
+
 fucntion chrome()
 {
     open $@ --args --allow-file-access-from-files
