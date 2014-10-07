@@ -1,3 +1,4 @@
+alias progressbar='pv $*'
 alias df='df -h $*'
 alias du='du -h $*'
 alias ll='CLICOLOR_FORCE=1 ls'
@@ -24,7 +25,7 @@ alias luis='ssh -C luis'
 alias rsync='rsync -Pavur'
 #alias tkd='cd ~/Development/rails/Dropbox/tkd.30'
 alias wood='cd ~/Development/rails/Dropbox/woodjoy'
-alias r9='rvm 1.9.2'
+#alias vols='cd /Volumes'
 alias vi='vim'
 alias gitpush='git push -u origin $1'
 alias gitremote='git checkout -b $1 origin/$1'
@@ -197,6 +198,7 @@ function kvim()
 function today
 {
     #ruby -e 'p Time.now.asctime '
+    idate=$(date)
     day=$(date | cut -d ' ' -f 3)
     dow=$(date | cut -d ' ' -f 1)
     month=$(date | cut -d ' ' -f 2)
