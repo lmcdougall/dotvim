@@ -43,9 +43,7 @@ alias develop='cd /Users/luis/Development/rails/Dropbox'
 alias rp='rails s -e production'
 alias rd='rails s'
 alias rc='rails c'
-#alias mdolce='cd /Users/luis/Development/rails/Dropbox/mdolce'
-#alias tnt='cd /Users/luis/Development/rails/Dropbox/tnt'
-
+alias vd='youtube-dl'
 
 
 ##########
@@ -222,7 +220,7 @@ function a-git
 
 function ruby-tapas
 {
-    (cd /Volumes/FASTDATA/ruby-tapas-downloader; bin/ruby-tapas-downloader)
+    (cd /Volumes/FASTDATA/ruby-tapas-downloader; bin/ruby-tapas-downloader $*)
 }
 
 function undocommit
@@ -287,3 +285,51 @@ function gitsrevs
     #  git ls-tree -r $rev
     done
 }
+
+function downlydia
+{
+    youtube-dl -f best $1 --username luismcdougall@gmail.com --password meph3cEe
+}
+
+# -------------------------------------------------------------------
+# compressed file expander 
+# (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
+# -------------------------------------------------------------------
+function ex() {
+    if [[ -f $1 ]]; then
+        case $1 in
+          *.tar.bz2) tar xvjf $1;;
+          *.tar.gz) tar xvzf $1;;
+          *.tar.xz) tar xvJf $1;;
+          *.tar.lzma) tar --lzma xvf $1;;
+          *.bz2) bunzip $1;;
+          *.rar) unrar $1;;
+          *.gz) gunzip $1;;
+          *.tar) tar xvf $1;;
+          *.tbz2) tar xvjf $1;;
+          *.tgz) tar xvzf $1;;
+          *.zip) unzip $1;;
+          *.Z) uncompress $1;;
+          *.7z) 7z x $1;;
+          *.dmg) hdiutul mount $1;; # mount OS X disk images
+          *) echo "'$1' cannot be extracted via >ex<";;
+    esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+# Print man page to a ps file and open in priview .
+function pman() {
+     ps=`mktemp -t manpageXXXX`.ps 
+     man -t $@ > "$ps" 
+     open "$ps"
+ }
+
+
+# function 
+# {
+#   user=$1
+#   ip=$2
+#   sudo ~/bin/sshuttle/sshuttle -N -vvr $user@$ip 0/0
+# {

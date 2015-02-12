@@ -1,11 +1,15 @@
 # Path to your oh-my-zsh configuration.
+
 unalias run-help
 autoload run-help
  HELPDIR=/usr/local/share/zsh/help
 export HOMEBREW_GITHUB_API_TOKEN=56126320ca88e8d3863763b592eca1320cd39df0
 export VAGRANT_DEFAULT_PROVIDER=parallels
 export EDITOR="vi"
-#bindkey -v # keys are set for vi now. -e for emacs 
+# this is for the go language 
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 #export LESSOPEN='|pygmentize- g %s'
@@ -39,12 +43,14 @@ export ARCHFLAGS="-arch x86_64"
 export MANPATH=/opt/local/man:$MANPATH
 export VIM_APP_DIR=/Applications/MacPorts/
 export TM_SUPPORT_PATH="/Library/Application Support/TextMate/Support"
+#export HISTIGNORE="history:ls:pwd"
 export HISTCONTROL=ignoreboth
-export HISTSIZE=500
+export HISTSIZE=900
 export TERM=xterm-color
 #export BUNDLER_EDITOR=/usr/local/bin/mate 
 export BUNDLER_EDITOR=~luis/bin/subl2
 #export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export GREP_OPTIONS='-E' 
 export CLICOLOR=1
 export LC_CTYPE=en_US.UTF-8
 source ~/.alias
@@ -108,3 +114,4 @@ export PATH="$PATH:$NPM_PATH"
 
 eval "$(rbenv init -)"
 
+bindkey -v # keys are set for vi now. -e for emacs 

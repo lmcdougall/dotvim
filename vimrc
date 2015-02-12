@@ -69,7 +69,7 @@ function! InsertTabWrapper()
 endfunction
 
 let mapleader=','
-"turn of the search higlight by pressing , space-bar
+"turn off the search higlight by pressing , space-bar
 nnoremap <leader><space> :noh<cr>
 
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
