@@ -331,8 +331,14 @@ function gotapas() {
     cd /Volumes/FASTDATA/ruby-tapas
 }
 function lsd(){
-    #CLICOLOR_FORCE=1 ls -l $*|egrep '^d' | awk '{printf $1 " "$9 " \n" }' 
-    CLICOLOR_FORCE=1 ls -l -G $*|egrep '^d' | awk '{printf $1 " "substr($0, index($0,$9)) " \n" }'
+    # if a '-' is passed then 
+    if [[ $1 == '-' ]] ; then
+        shift
+        CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' | awk '{printf $1 " "substr($0, index($0,$9)) " \n" }'
+   else
+        CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' 
+   fi
+
 }
 
 functions luisdata(){
