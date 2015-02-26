@@ -7,9 +7,9 @@ alias cp='cp -i'
 alias h='history'
 alias la='CLICOLOR_FORCE=1 ls -a'
 alias lsc='CLICOLOR_FORCE=1 ls -G'
-alias lsd="CLICOLOR_FORCE=1 ls -l $*|egrep '^d'"
-alias lsl="CLICOLOR_FORCE=1 ls -l $*|egrep '^l'"
-alias lsf="CLICOLOR_FORCE=1 ls -l $*|egrep -v '^d'"
+#alias lsd="CLICOLOR_FORCE=1 ls -l $*|egrep '^d'"
+alias lsl="CLICOLOR_FORCE=1 ls -l -G $*|egrep '^l'"
+alias lsf="CLICOLOR_FORCE=1 ls -l -G $*|egrep -v '^d'"
 alias knock='~/bin/knock.py'
 alias llogin='~/bin/llogin'
 alias hosts='cat /etc/hosts'
@@ -20,17 +20,13 @@ alias msql='mysql.server start'
 alias mstart='sudo nohup /opt/local/bin/mysqld_safe5 &'
 alias mstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'
 alias scpresume='rsync --partial --progress --rsh=ssh'
-#alias storage='ssh -C linux'
 alias luis='ssh -C luis'
 alias rsync='rsync -Pavur'
-#alias tkd='cd ~/Development/rails/Dropbox/tkd.30'
-alias wood='cd ~/Development/rails/Dropbox/woodjoy'
 #alias vols='cd /Volumes'
 alias vi='vim'
 alias gitpush='git push -u origin $1'
 alias gitremote='git checkout -b $1 origin/$1'
 alias gl='git log --oneline --all --graph --decorate'
-#alias gemset="rvm gemset  $*"
 alias gemset="rbenv gemset  $*"
 alias ustc='cd ~/Development/rails/Dropbox/ustc'
 alias gitk='gitk --all'
@@ -326,6 +322,26 @@ function pman() {
      open "$ps"
  }
 
+#switch to vi key actions
+function svim() { bindkey -v }
+#switch to emacs key actions
+function semacs() { bindkey -e }
+
+function gotapas() {
+    cd /Volumes/FASTDATA/ruby-tapas
+}
+function lsd(){
+    #CLICOLOR_FORCE=1 ls -l $*|egrep '^d' | awk '{printf $1 " "$9 " \n" }' 
+    CLICOLOR_FORCE=1 ls -l -G $*|egrep '^d' | awk '{printf $1 " "substr($0, index($0,$9)) " \n" }'
+}
+
+functions luisdata(){
+    cd /Volumes/LuisData
+}
+
+function duration() {
+    ffprobe -i $1 2>&1 | grep -i duration
+}
 
 # function 
 # {

@@ -24,7 +24,7 @@ export PGHOST=localhost
 #ZSH_THEME="bira"
 #ZSH_THEME="random"
 ZSH_THEME="arrow"
-plugins=(git brew heroku rails luis)
+plugins=(git brew heroku rails luis cambia)
 #To be use with rsync. It may need to be clean from time to time.
 #but it should not be necesary.
 export RSYNC_PARTIAL_DIR=~/.rsync-tmp
@@ -114,4 +114,4 @@ export PATH="$PATH:$NPM_PATH"
 
 eval "$(rbenv init -)"
 
-bindkey -v # keys are set for vi now. -e for emacs 
+#bindkey -v # keys are set for vi now. -e for emacs 
