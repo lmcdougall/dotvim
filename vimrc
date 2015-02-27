@@ -5,7 +5,7 @@ set nocompatible                  " Must come first because it changes other opt
 
 " auto load all files into new tab each
 ":au BufAdd,BufNewFile * nested tab sball
-
+"set grepprg=ack  "you could replace grep for ack this way
 silent! call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -74,7 +74,8 @@ nnoremap <leader><space> :noh<cr>
 
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
-
+" split mappingsx
+map <leader>s :vsplit <C-R>=expand("%:p:h") . '/' <CR>
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
@@ -200,3 +201,4 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 nnoremap <leader>N :setlocal number!<cr>
 set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<cr>
+set tags=./tags;

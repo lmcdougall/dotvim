@@ -101,3 +101,6 @@
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "bundle/akc"]
+	path = bundle/akc
+	url = https://github.com/mileszs/ack.vim.git
