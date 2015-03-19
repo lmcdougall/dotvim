@@ -1,5 +1,12 @@
 # Path to your oh-my-zsh configuration.
 
+if [[ $OSTYPE =~ "darwin" ]]
+then
+    echo "we are in Mac land"
+else
+
+    echo "we are in " $OSTYPE
+fi
 unalias run-help
 autoload run-help
  HELPDIR=/usr/local/share/zsh/help
@@ -7,9 +14,12 @@ export HOMEBREW_GITHUB_API_TOKEN=56126320ca88e8d3863763b592eca1320cd39df0
 export VAGRANT_DEFAULT_PROVIDER=parallels
 export EDITOR="vi"
 # this is for the go language 
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
+if [[ $OSTYPE =~ "darwin" ]]
+then
+    export GOPATH=$HOME/go
+    export PATH=$PATH:/usr/local/opt/go/libexec/bin
+fi
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 #export LESSOPEN='|pygmentize- g %s'
@@ -31,24 +41,30 @@ export RSYNC_PARTIAL_DIR=~/.rsync-tmp
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/aclocal:/Users/luis/bin:/usr/bin:/bin:/usr/sbin:/sbin::/usr/X11/bin
-autoload -U compinit && compinit
-#-------From bash_profile
-#This file is the one that bash reads
-#source /usr/local/etc/bash_completion.d/git-completion.bash
-#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-#PS1='[%c$(__git_ps1 " (%s)")]\$ '
-#export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
-export ARCHFLAGS="-arch x86_64"
-export MANPATH=/opt/local/man:$MANPATH
-export VIM_APP_DIR=/Applications/MacPorts/
-export TM_SUPPORT_PATH="/Library/Application Support/TextMate/Support"
+if [[ $OSTYPE =~ "darwin" ]]
+then
+
+    export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/aclocal:/Users/luis/bin:/usr/bin:/bin:/usr/sbin:/sbin::/usr/X11/bin
+    autoload -U compinit && compinit
+    #-------From bash_profile
+    #This file is the one that bash reads
+    #source /usr/local/etc/bash_completion.d/git-completion.bash
+    #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+    #PS1='[%c$(__git_ps1 " (%s)")]\$ '
+    #export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
+
+    export ARCHFLAGS="-arch x86_64"
+    export MANPATH=/opt/local/man:$MANPATH
+    export VIM_APP_DIR=/Applications/MacPorts/
+    export TM_SUPPORT_PATH="/Library/Application Support/TextMate/Support"
+fi
+
 #export HISTIGNORE="history:ls:pwd"
 export HISTCONTROL=ignoreboth
 export HISTSIZE=900
 export TERM=xterm-color
 #export BUNDLER_EDITOR=/usr/local/bin/mate 
-export BUNDLER_EDITOR=~luis/bin/subl2
+export BUNDLER_EDITOR=~/bin/subl2
 #export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export GREP_OPTIONS='-E' 
 export CLICOLOR=1
@@ -102,16 +118,37 @@ export LESS_TERMCAP_us=$'\E[01;32m'             # begin underline
 #export MANPAGER="/usr/bin/most -s"             # color using most
 
 #rbenv 
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if [[ $OSTYPE =~ "Linux" ]]
+then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+fi
 
-NPM_PAT=H"/usr/local/share/npm/bin"
-export RBENV_ROOT=/usr/local/var/rbenv
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-###
-export PATH="$PATH:$NPM_PATH"
+if [[ $OSTYPE =~ "darwin" ]]
+then
+    NPM_PAT=H"/usr/local/share/npm/bin"
+    export RBENV_ROOT=/usr/local/var/rbenv
+    ### Added by the Heroku Toolbelt
+    export PATH="/usr/local/heroku/bin:$PATH"
+    ###
+    export PATH="$PATH:$NPM_PATH"
+fi
 
 eval "$(rbenv init -)"
 
 #bindkey -v # keys are set for vi now. -e for emacs 
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' condition m
+
+if [[ $OSTYPE =~ "darwin" ]]
+then
+    zstyle :compinstall filename '/Users/luis/.zshrc'
+else
+    zstyle :compinstall filename '~/.zshrc'
+fi
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall

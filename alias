@@ -1,4 +1,5 @@
 alias progressbar='pv $*'
+alias archey='archey -c'
 alias df='df -h $*'
 alias du='du -h $*'
 alias ll='CLICOLOR_FORCE=1 ls'
@@ -9,7 +10,7 @@ alias la='CLICOLOR_FORCE=1 ls -a'
 alias lsc='CLICOLOR_FORCE=1 ls -G'
 #alias lsd="CLICOLOR_FORCE=1 ls -l $*|egrep '^d'"
 alias lsl="CLICOLOR_FORCE=1 ls -l -G $*|egrep '^l'"
-alias lsf="CLICOLOR_FORCE=1 ls -l -G $*|egrep -v '^d'"
+#alias lsf="CLICOLOR_FORCE=1 ls -l -G $*|egrep -v '^d'"
 alias knock='~/bin/knock.py'
 alias llogin='~/bin/llogin'
 alias hosts='cat /etc/hosts'
@@ -28,14 +29,13 @@ alias gitpush='git push -u origin $1'
 alias gitremote='git checkout -b $1 origin/$1'
 alias gl='git log --oneline --all --graph --decorate'
 alias gemset="rbenv gemset  $*"
-alias ustc='cd ~/Development/rails/Dropbox/ustc'
 alias gitk='gitk --all'
 alias mate2='/usr/local/bin/mate $* '
 alias mate='/usr/bin/mate $* '
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs $* &"
 alias src='cd  /Users/luis/Development/rails/source'
 alias rb='rbenv'
-alias develop='cd /Users/luis/Development/rails/Dropbox'
+alias develop='cd /Users/luis/Development/rails/'
 alias rp='rails s -e production'
 alias rd='rails s'
 alias rc='rails c'
@@ -45,25 +45,14 @@ alias vd='youtube-dl'
 ##########
 #Funtions#
 ##########
-#function wisemed ()
+
+
+#function name ()
 #{
 #    if [[ $# == 0 ]] ; then
-#        cd ~/Development/Dropbox/ruby/wisemed
-#    elif [[ $1 =~ "^[-0-9]+$" ]] ; then
-#        cd ~/Development/Dropbox/ruby/wisemed/wisemed$1 
+#        # do something
 #    else
-#        cd ~/Development/Dropbox/ruby/wisemed/$1
-#    fi
-#}
-
-
-
-#function tkd ()
-#{
-#    if [[ $# == 0 ]] ; then
-#        cd ~/Development/Dropbox/tkd
-#    else
-#        cd ~/Development/Dropbox/tkd.30
+#       # do something 
 #    fi
 #}
 #
@@ -71,6 +60,7 @@ alias vd='youtube-dl'
 # this script is for experimentation with zsh 
 function mcdougall ()
 {
+    echo "exprimenting with if aguments and case"
     print $# $*
     if [[ $# == 0 ]]; then
         print Yellow is no colour.
@@ -129,9 +119,9 @@ function pg-server()
 function rdev()
 {
   if [[ $# != 0 ]]; then
-    cd ~/Development/Dropbox/ruby/$1
+    cd ~/Development/ruby/$1
   else
-    cd ~/Development/Dropbox/ruby
+    cd ~/Development/ruby
   fi
 }
 
@@ -193,12 +183,12 @@ function today
 {
     #ruby -e 'p Time.now.asctime '
     idate=$(date)
-    day=$(date | cut -d ' ' -f 3)
+    day=$(date | cut -d ' ' -f 4)
     dow=$(date | cut -d ' ' -f 1)
-    month=$(date | cut -d ' ' -f 2)
-    year=$(date | cut -d ' ' -f 6)
-    hr=$(date | cut -d ' ' -f 4)
-    zone=$(date | cut -d ' ' -f 5)
+    month=$(date | cut -d ' ' -f 3)
+    year=$(date | cut -d ' ' -f 7)
+    hr=$(date | cut -d ' ' -f 5)
+    zone=$(date | cut -d ' ' -f 6)
    
     echo "$dow $month $day, $year @ $hr"
 
@@ -215,8 +205,14 @@ function a-git
 }
 
 function ruby-tapas
-{
-    (cd /Volumes/FASTDATA/ruby-tapas-downloader; bin/ruby-tapas-downloader $*)
+{ 
+    # download_path="/Volumes/usbshare1-2/ruby-tapas" 
+    if [ -d /Volumes/FASTDATA ]; then
+        $(cd /Volumes/FASTDATA/ruby-tapas-downloader; bundle exec bin/ruby-tapas-downloader $*)
+    else
+        $(cd /Volumes/usbshare1-2/ruby-tapas-downloader; bundel exec bin/ruby-tapas-downloader $*) 
+    fi
+
 }
 
 function undocommit
@@ -328,17 +324,33 @@ function svim() { bindkey -v }
 function semacs() { bindkey -e }
 
 function gotapas() {
-    cd /Volumes/FASTDATA/ruby-tapas
+    
+    if [ -d /Volumes/FASTDATA ]; then
+        cd /Volumes/FASTDATA/ruby-tapas
+    else
+        cd /Volumes/usbshare1-2/ruby-tapas
+    fi
 }
+
 function lsd(){
     # if a '-' is passed then 
     if [[ $1 == '-' ]] ; then
         shift
-        CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' | awk '{printf $1 " "substr($0, index($0,$9)) " \n" }'
+        #CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' | awk '{printf $1 " "substr($0, index($0,$9)) " \n" }'
+        CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' | awk '{printf $9 "\n"}'
    else
         CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' 
    fi
 
+}
+
+fucntion lsf() {
+   if [[ $1 == '-' ]] ; then
+        shift
+        CLICOLOR_FORCE=1 ls -l  -G $*|egrep -v '^d' | awk '{printf $9 "\n" }' #" "substr($0, index($0,$9)) " \n" }'
+   else
+        CLICOLOR_FORCE=1 ls -l  -G $*|egrep -v '^d' 
+   fi
 }
 
 functions luisdata(){
@@ -347,6 +359,16 @@ functions luisdata(){
 
 function duration() {
     ffprobe -i $1 2>&1 | grep -i duration
+}
+
+function filename {
+    cat ~/bin/filename.txt
+}
+
+function lsmovies() {
+# the problem here is that if one of the paterns
+# do no exist the whole thing fail.
+    ls *.{mov,mp4}
 }
 
 # function 
