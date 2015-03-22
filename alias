@@ -359,7 +359,12 @@ function lsd(){
 fucntion lsf() {
    if [[ $1 == '-' ]] ; then
         shift
-        CLICOLOR_FORCE=1 ls -l  -G $*|egrep -v '^d' | awk '{printf $9 "\n" }' #" "substr($0, index($0,$9)) " \n" }'
+        if [[ $OSTYPE =~ "darwin" ]]
+        then
+            CLICOLOR_FORCE=1 ls -l  -G $*|egrep -v '^d' | awk '{printf $9 "\n" }' 
+        else
+            CLICOLOR_FORCE=1 ls -l  -G $*|egrep -v '^d' | awk '{printf $9 "\n" }'
+        fi
    else
         CLICOLOR_FORCE=1 ls -l  -G $*|egrep -v '^d' 
    fi
