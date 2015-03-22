@@ -14,28 +14,34 @@ alias lsl="CLICOLOR_FORCE=1 ls -l -G $*|egrep '^l'"
 alias knock='~/bin/knock.py'
 alias llogin='~/bin/llogin'
 alias hosts='cat /etc/hosts'
-alias gvim='~/bin/gvim'
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+
+if [[ $OSTYPE =~ "darwin" ]]
+then
+    alias gvim='~/bin/gvim'
+    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+    alias msql='mysql.server start'
+    alias mstart='sudo nohup /opt/local/bin/mysqld_safe5 &'
+    alias mstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'
+    alias vi='vim'
+    alias mate2='/usr/local/bin/mate $* '
+    alias mate='/usr/bin/mate $* '
+    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs $* &"
+    alias src='cd  /Users/luis/Development/rails/source'
+    alias develop='cd /Users/luis/Development/rails/'
+else
+
+    echo "we are in " $OSTYPE
+fi
 alias print_man='man $1 -t > man.ps'
-alias msql='mysql.server start'
-alias mstart='sudo nohup /opt/local/bin/mysqld_safe5 &'
-alias mstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'
 alias scpresume='rsync --partial --progress --rsh=ssh'
 alias luis='ssh -C luis'
 alias rsync='rsync -Pavur'
-#alias vols='cd /Volumes'
-alias vi='vim'
 alias gitpush='git push -u origin $1'
 alias gitremote='git checkout -b $1 origin/$1'
 alias gl='git log --oneline --all --graph --decorate'
 alias gemset="rbenv gemset  $*"
 alias gitk='gitk --all'
-alias mate2='/usr/local/bin/mate $* '
-alias mate='/usr/bin/mate $* '
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs $* &"
-alias src='cd  /Users/luis/Development/rails/source'
 alias rb='rbenv'
-alias develop='cd /Users/luis/Development/rails/'
 alias rp='rails s -e production'
 alias rd='rails s'
 alias rc='rails c'
