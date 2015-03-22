@@ -349,7 +349,6 @@ function lsd(){
             CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' | awk '{printf $9 "\n"}'
         else
             CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' | awk '{printf $8 "\n"}'
-        else
         fi
    else
         CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' 
