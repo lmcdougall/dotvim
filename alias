@@ -343,7 +343,14 @@ function lsd(){
     if [[ $1 == '-' ]] ; then
         shift
         #CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' | awk '{printf $1 " "substr($0, index($0,$9)) " \n" }'
-        CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' | awk '{printf $9 "\n"}'
+        
+        if [[ $OSTYPE =~ "darwin" ]]
+        then
+            CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' | awk '{printf $9 "\n"}'
+        else
+            CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' | awk '{printf $8 "\n"}'
+        else
+        if
    else
         CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' 
    fi
