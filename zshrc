@@ -3,11 +3,12 @@
 if [[ $OSTYPE =~ "darwin" ]]
 then
     echo "we are in Mac land"
+    unalias run-help
 else
 
     echo "we are in " $OSTYPE
 fi
-unalias run-help
+
 autoload run-help
  HELPDIR=/usr/local/share/zsh/help
 export HOMEBREW_GITHUB_API_TOKEN=56126320ca88e8d3863763b592eca1320cd39df0
