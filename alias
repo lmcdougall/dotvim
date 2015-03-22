@@ -350,7 +350,7 @@ function lsd(){
         else
             CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' | awk '{printf $8 "\n"}'
         else
-        if
+        fi
    else
         CLICOLOR_FORCE=1 ls -l  -G $*|egrep '^d' 
    fi
