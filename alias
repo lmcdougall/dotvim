@@ -17,8 +17,9 @@ alias hosts='cat /etc/hosts'
 
 if [[ $OSTYPE =~ "darwin" ]]
 then
+    alias laravel='~/.composer/vendor/bin/laravel'
     alias gvim='~/bin/gvim'
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+#    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias msql='mysql.server start'
     alias mstart='sudo nohup /opt/local/bin/mysqld_safe5 &'
     alias mstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'
@@ -189,12 +190,12 @@ function today
 {
     #ruby -e 'p Time.now.asctime '
     idate=$(date)
-    day=$(date | cut -d ' ' -f 4)
+    day=$(date | cut -d ' ' -f 3)
     dow=$(date | cut -d ' ' -f 1)
-    month=$(date | cut -d ' ' -f 3)
-    year=$(date | cut -d ' ' -f 7)
-    hr=$(date | cut -d ' ' -f 5)
-    zone=$(date | cut -d ' ' -f 6)
+    month=$(date | cut -d ' ' -f 2)
+    year=$(date | cut -d ' ' -f 6)
+    hr=$(date | cut -d ' ' -f 4)
+    zone=$(date | cut -d ' ' -f 5)
    
     echo "$dow $month $day, $year @ $hr"
 
@@ -204,19 +205,25 @@ function animate
 { # use animate *.jpg
     convert -delay 55 -loop 0 $@  animated.gif
 }
-
-function a-git
+# git 
+function git-alias
 {
   alias | grep git
+}
+function git-last
+{
+     git log --name-status HEAD^..HEAD
 }
 
 function ruby-tapas
 { 
     # download_path="/Volumes/usbshare1-2/ruby-tapas" 
     if [ -d /Volumes/FASTDATA ]; then
-        $(cd /Volumes/FASTDATA/ruby-tapas-downloader; bundle exec bin/ruby-tapas-downloader $*)
+        #$(cd /Volumes/FASTDATA/ruby-tapas-downloader; bundle exec bin/ruby-tapas-downloader $*)
+        cd /Volumes/FASTDATA/ruby-tapas-downloader; bundle exec bin/ruby-tapas-downloader download; cd -
     else
-        $(cd /Volumes/usbshare1-2/ruby-tapas-downloader; bundel exec bin/ruby-tapas-downloader $*) 
+        #$(cd /Volumes/usbshare1-2/ruby-tapas-downloader; bundel exec bin/ruby-tapas-downloader $*) 
+        cd /Volumes/usbshare1-2/ruby-tapas-downloader; bundel exec bin/ruby-tapas-downloader download; cd -
     fi
 
 }
@@ -382,11 +389,33 @@ function filename {
     cat ~/bin/filename.txt
 }
 
+funciontion vim-last-migration() {
+  if [ -d db/migrate/ ]; then
+    vim db/migrate/$(ls db/migrate/ | tail -n 1)
+  else
+    echo "** you are not in a rails project"
+  fi
+}
+
 function lsmovies() {
 # the problem here is that if one of the paterns
 # do no exist the whole thing fail.
     ls *.{mov,mp4}
 }
+
+if [[ $OSTYPE =~ "darwin" ]]
+then
+
+    function showHidden() { # toggle finder showing hidden files 
+        hiden=$(defaults read com.apple.finder AppleShowAllFiles) 
+        if [[ $hiden -eq 0 ]] 
+        then
+            defaults write com.apple.finder AppleShowAllFiles 1; killall Finder 
+        else
+            defaults write com.apple.finder AppleShowAllFiles 0; killall Finder 
+        fi
+    }
+fi
 
 # function 
 # {

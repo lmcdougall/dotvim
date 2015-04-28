@@ -3,6 +3,7 @@
 if [[ $OSTYPE =~ "darwin" ]]
 then
     echo "we are in Mac land"
+    export PGDATA=/usr/local/var/postgres
     unalias run-help
 else
 
@@ -45,7 +46,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ $OSTYPE =~ "darwin" ]]
 then
 
-    export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/aclocal:/Users/luis/bin:/usr/bin:/bin:/usr/sbin:/sbin::/usr/X11/bin
+    export PATH=/Users/luis/bin:/usr/bin:/bin:/usr/sbin:/sbin::/usr/X11/bin
     autoload -U compinit && compinit
     #-------From bash_profile
     #This file is the one that bash reads
@@ -131,8 +132,11 @@ then
     export RBENV_ROOT=/usr/local/var/rbenv
     ### Added by the Heroku Toolbelt
     export PATH="/usr/local/heroku/bin:$PATH"
+    export PATH="/Applications/MacVim.app/Contents/MacOS:$PATH"
+
     ###
     export PATH="$PATH:$NPM_PATH"
+    export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/share/aclocal:$PATH"
 fi
 
 eval "$(rbenv init -)"
@@ -153,3 +157,5 @@ fi
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+export MSF_DATABASE_CONFIG=/usr/local/share/metasploit-framework/config/database.yml
+
