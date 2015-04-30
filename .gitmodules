@@ -104,3 +104,6 @@
 [submodule "bundle/akc"]
 	path = bundle/akc
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle/delimitMate"]
+  path = bundle/delimitMate
+  url = https://github.com/Raimondi/delimitMate.git
