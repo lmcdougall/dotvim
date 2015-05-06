@@ -14,6 +14,12 @@ filetype plugin indent on         " Turn on file type detection.
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+"set listchars=tab:>·
+"set listchars=trail:~
+"set listchars=extends:>
+"set listchars=precedes:<
+set list
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 
@@ -221,3 +227,12 @@ function LargeFile()
  " display message
  autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
 endfunction
+" Vim
+let g:indentLine_color_term = 239
+"
+" "GVim
+ let g:indentLine_color_gui = '#A4E57E'
+"
+" " none X terminal
+ let g:indentLine_color_tty_light = 7 " (default: 4)
+ let g:indentLine_color_dark = 1 " (default: 2)

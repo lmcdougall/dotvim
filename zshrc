@@ -158,4 +158,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 export MSF_DATABASE_CONFIG=/usr/local/share/metasploit-framework/config/database.yml
+#Docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/luis/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
 
