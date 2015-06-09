@@ -377,6 +377,10 @@ fucntion lsf() {
    fi
 }
 
+function code(){
+    cd /Users/luis/Development/ruby/code
+}
+
 functions luisdata(){
     cd /Volumes/LuisData
 }
