@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-
+setopt interactivecomments
 if [[ $OSTYPE =~ "darwin" ]]
 then
     echo "we are in Mac land"
