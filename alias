@@ -404,7 +404,7 @@ funciontion vim-last-migration() {
 function lsmovies() {
 # the problem here is that if one of the paterns
 # do no exist the whole thing fail.
-    ls *.{mov,mp4}
+    ls *.(mov|mp4|webm)
 }
 
 if [[ $OSTYPE =~ "darwin" ]]

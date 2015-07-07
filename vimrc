@@ -109,11 +109,11 @@ vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 " edit commands 
-"cnoremap %% <C-R>=expand('%:h').'/'<cr>
-"map <leader>ew :e %%
-"map <leader>es :sp %%
-"map <leader>ev :vsp %%
-"map <leader>et :tabe %%
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
 " bubble text
 " Bubble single lines
 "nmap <Esc>[A [e

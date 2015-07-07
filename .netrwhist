@@ -1,7 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/luis/Development/Dropbox/ruby/itoadmin/app'
-let g:netrw_dirhist_2='/Users/luis/Development/Dropbox/ruby/mstkd'
-let g:netrw_dirhist_3='/Users/luis/Development/Dropbox/ruby/itoadmin'
-let g:netrw_dirhist_4='/Users/luis/.vim'
-let g:netrw_dirhist_5='/Users/luis/Development/Dropbox/ruby/wisemed.proj/mecwatch'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/luis/Development/ruby/projects/213-calendars-revised/blog-after/app'
