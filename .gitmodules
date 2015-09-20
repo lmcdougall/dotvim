@@ -83,6 +83,9 @@
 [submodule "bundle/vimux"]
 	path = bundle/vimux
 	url = https://github.com/benmills/vimux.git
+[submodule "bundle/indentLine"]
+	path = bundle/indentLine
+	url = https://github.com:Yggdroot/indentLine.git
 [submodule "bundle/bundle/vim-neatstatus"]
 	path = bundle/bundle/vim-neatstatus
 	url = git://github.com/maciakl/vim-neatstatus.git

@@ -1,4 +1,6 @@
 # Path to your oh-my-zsh configuration.
+DISABLE_UPDATE_PROMPT=true
+
 setopt interactivecomments
 if [[ $OSTYPE =~ "darwin" ]]
 then

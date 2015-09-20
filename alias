@@ -14,6 +14,7 @@ alias lsl="CLICOLOR_FORCE=1 ls -l -G $*|egrep '^l'"
 alias knock='~/bin/knock.py'
 alias llogin='~/bin/llogin'
 alias hosts='cat /etc/hosts'
+alias vimmigrate='gvim db/migrate/$(ls db/migrate |tail -n 1)'
 
 if [[ $OSTYPE =~ "darwin" ]]
 then
@@ -29,6 +30,7 @@ then
     alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs $* &"
     alias src='cd  /Users/luis/Development/rails/source'
     alias develop='cd /Users/luis/Development/rails/'
+    alias lynda='cd ~/Downloads/lynda'
 else
 
     echo "we are in " $OSTYPE
