@@ -14,7 +14,7 @@ fi
 
 autoload run-help
  HELPDIR=/usr/local/share/zsh/help
-export HOMEBREW_GITHUB_API_TOKEN=56126320ca88e8d3863763b592eca1320cd39df0
+export HOMEBREW_GITHUB_API_TOKEN=0f3e44d36df70aa78f69262fa43716cd9b2b444b
 export VAGRANT_DEFAULT_PROVIDER=parallels
 export EDITOR="vi"
 # this is for the go language 

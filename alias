@@ -15,6 +15,7 @@ alias knock='~/bin/knock.py'
 alias llogin='~/bin/llogin'
 alias hosts='cat /etc/hosts'
 alias vimmigrate='gvim db/migrate/$(ls db/migrate |tail -n 1)'
+alias rs='rails s --binding=0.0.0.0'
 
 if [[ $OSTYPE =~ "darwin" ]]
 then
@@ -423,9 +424,28 @@ then
     }
 fi
 
+function md1
+{
+    mkdir -p $1
+    cd $1
+}
+
+function elixir-tapas
+{ 
+    # download_path="/Volumes/usbshare1-2/ruby-tapas" 
+    if [ -d  /Volumes/FASTDATA ]; then
+        #$(cd /Volumes/FASTDATA/ruby-tapas-downloader; bundle exec bin/ruby-tapas-downloader $*)
+        cd /Volumes/FASTDATA/elixirsips; /Users/luis/bin/elixir-downloader; cd -
+    else
+        #$(cd /Volumes/usbshare1-2/ruby-tapas-downloader; bundel exec bin/ruby-tapas-downloader $*) 
+    fi
+
+}
+
 # function 
 # {
 #   user=$1
 #   ip=$2
 #   sudo ~/bin/sshuttle/sshuttle -N -vvr $user@$ip 0/0
 # {
+alias md='md1 $1'
