@@ -294,6 +294,11 @@ function gitsrevs
     done
 }
 
+function lyndad 
+{
+    youtube-dl -f best $1 --username 5390593.6785956 --password 2pYoq8Yh
+}
+
 function downlydia
 {
     youtube-dl -f best $1 --username luismcdougall@gmail.com --password meph3cEe
