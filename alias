@@ -16,6 +16,7 @@ alias llogin='~/bin/llogin'
 alias hosts='cat /etc/hosts'
 alias vimmigrate='gvim db/migrate/$(ls db/migrate |tail -n 1)'
 alias rs='rails s --binding=0.0.0.0'
+alias wh='where $*'
 
 if [[ $OSTYPE =~ "darwin" ]]
 then
@@ -445,6 +446,11 @@ function elixir-tapas
         #$(cd /Volumes/usbshare1-2/ruby-tapas-downloader; bundel exec bin/ruby-tapas-downloader $*) 
     fi
 
+}
+
+function vm
+{
+ vim db/migrate/$(ls db/migrate/ | tail -n 1)
 }
 
 # function 
