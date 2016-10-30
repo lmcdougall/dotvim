@@ -94,7 +94,7 @@ function mcdougall ()
 function tmuxf()
 {
   if [[ $# == 0 ]]; then
-    tmux new-session -n mcbook
+    tmux new -s mcbook
   else
     tmux $*
   fi
@@ -160,7 +160,7 @@ function rsynk()
 
 function scpmundo()
 {
-  scp $1 mundomcd@mundomcdougall.com:
+  scp $* mundomcd@mundomcdougall.com:
 }
 
 fucntion chrome()
@@ -382,7 +382,8 @@ fucntion lsf() {
             CLICOLOR_FORCE=1 ls -l  -G $*|egrep -v '^d' | awk '{printf $8 "\n" }'
         fi
    else
-        CLICOLOR_FORCE=1 ls -l  -G $*|egrep -v '^d' 
+        #CLICOLOR_FORCE=1 ls -l  -G $*|egrep -v '^d' 
+        CLICOLOR_FORCE=1 ls -G -l -G $* | egrep -v -e ^d -e ^l
    fi
 }
 
@@ -451,6 +452,11 @@ function elixir-tapas
 function vm
 {
  vim db/migrate/$(ls db/migrate/ | tail -n 1)
+}
+
+function setdocker
+{
+    eval $(docker-machine env default)
 }
 
 # function 

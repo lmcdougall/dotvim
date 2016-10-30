@@ -165,3 +165,7 @@ export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/luis/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 eval "$(thefuck --alias)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+#eval $(docker-machine env default)
+RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`

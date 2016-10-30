@@ -2,6 +2,8 @@
 " Copy or symlink to ~/.vimrc or ~/_vimrc.
 
 set nocompatible                  " Must come first because it changes other options.
+set relativenumber
+set number
 
 " auto load all files into new tab each
 ":au BufAdd,BufNewFile * nested tab sball
