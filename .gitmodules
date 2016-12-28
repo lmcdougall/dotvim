@@ -4,9 +4,6 @@
 [submodule "bundle/vim-ragtag"]
 	path = bundle/vim-ragtag
 	url = http://github.com/tpope/vim-ragtag.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
@@ -83,9 +80,6 @@
 [submodule "bundle/vimux"]
 	path = bundle/vimux
 	url = https://github.com/benmills/vimux.git
-[submodule "bundle/indentLine"]
-	path = bundle/indentLine
-	url = https://github.com:Yggdroot/indentLine.git
 [submodule "bundle/bundle/vim-neatstatus"]
 	path = bundle/bundle/vim-neatstatus
 	url = git://github.com/maciakl/vim-neatstatus.git

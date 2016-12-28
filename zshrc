@@ -161,11 +161,15 @@ compinit
 # End of lines added by compinstall
 export MSF_DATABASE_CONFIG=/usr/local/share/metasploit-framework/config/database.yml
 #Docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/luis/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+#export DOCKER_HOST=tcp://192.168.59.103:2376
+#export DOCKER_CERT_PATH=/Users/luis/.boot2docker/certs/boot2docker-vm
+#export DOCKER_TLS_VERIFY=1
 eval "$(thefuck --alias)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 #eval $(docker-machine env default)
 RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
+# for libxml2, installed via brew
+#LDFLAGS:  -L/usr/local/opt/libxml2/lib
+#CPPFLAGS: -I/usr/local/opt/libxml2/include
+#PKG_CONFIG_PATH: /usr/local/opt/libxml2/lib/pkgconfig

@@ -1,9 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/luis/Development/ruby/projects/213-calendars-revised/blog-after/app'
-let g:netrw_dirhist_2='/Volumes/LuisFiles/projects/followmed/app/models'
-let g:netrw_dirhist_3='/Users/luis/Development/ruby/projects/followmed/db/migrate'
-let g:netrw_dirhist_4='/Users/luis/Development/ruby/projects/followmed'
-let g:netrw_dirhist_5='/Users/luis/Development/ruby/projects/wisemed.proj/scaffold.script'
-let g:netrw_dirhist_6='/Users/luis/Development/ruby/projects/followmed/test'
-let g:netrw_dirhist_7='/Users/luis/Development/ruby/projects/followmed'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/luis/Development/ruby/projects/followmed/app/assets/javascripts'
